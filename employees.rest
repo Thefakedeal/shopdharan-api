@@ -1,0 +1,45 @@
+POST  http://localhost:5000/api/employees/add HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+{
+    "employee_name": "Root Admin",
+    "is_admin": "true",
+    "username": "dharanshop",
+    "password":"thefakedeal",
+    "email": "theonlysamir@gmail.com"
+}
+
+###
+
+GET  http://localhost:5000/api/employees/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY4MWM2ZTFkLWFlNTEtNGUyNC1hNmVmLTc1OThjODczYmU3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMTMxNzcwNywiZXhwIjoxNjAxMzE4NjA3fQ.Tee2QwDjtq8cYp0XywVEMw0Eh8WOlL8IOF8JcG2Z0Ug
+content-type: application/json
+
+### 
+DELETE   http://localhost:5000/api/employees/delete HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+{
+    "employee_id": "8d987b70-dc58-4500-b64c-4217f8d5b08e"
+}
+
+###
+
+PUT  http://localhost:5000/api/employees/update HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+{
+    "employee_id": "8d987b70-dc58-4500-b64c-4217f8d5b08e",
+    "employee_name": "Root Account1",
+    "is_admin": true,
+    "username": "dharanshop11",
+    "email": "theonlysamir111@gmail.com"
+}
+
+###
+GET    http://localhost:5000/api/employees/get?employee_id=8d987b70-dc58-4500-b64c-4217f8d5b08e HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
