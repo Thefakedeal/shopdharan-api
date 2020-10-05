@@ -9,7 +9,6 @@ router.post("/", async (req, res) => {
   
   try {
     const { username, password } = req.body;
-    console.log(req)
     const query = await db.query(
       `SELECT username, password, employee_id, is_admin
         FROM employee WHERE username=$1`,

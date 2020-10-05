@@ -79,7 +79,7 @@ CREATE TABLE products
     product_id VARCHAR(36),
     product_name VARCHAR(40) NOT NULL,
     supplier_id VARCHAR(36) NOT NULL,
-    product_catagory VARCHAR(40),
+    product_description TEXT,
     image_id TEXT DEFAULT 'logo',
     available BOOLEAN DEFAULT TRUE,
     PRIMARY KEY(product_id),
@@ -91,6 +91,7 @@ CREATE TABLE products
     REFERENCES suppliers(supplier_id)
     ON DELETE CASCADE
 );
+
 
 CREATE TABLE employee
 (

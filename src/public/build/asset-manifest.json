@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/admin/static/css/main.4108bdc0.chunk.css",
+    "main.js": "/admin/static/js/main.0ef14504.chunk.js",
+    "main.js.map": "/admin/static/js/main.0ef14504.chunk.js.map",
+    "runtime-main.js": "/admin/static/js/runtime-main.725b2414.js",
+    "runtime-main.js.map": "/admin/static/js/runtime-main.725b2414.js.map",
+    "static/js/2.0c46fd76.chunk.js": "/admin/static/js/2.0c46fd76.chunk.js",
+    "static/js/2.0c46fd76.chunk.js.map": "/admin/static/js/2.0c46fd76.chunk.js.map",
+    "index.html": "/admin/index.html",
+    "precache-manifest.8b68227ddf762f8b6931fdf7176d3850.js": "/admin/precache-manifest.8b68227ddf762f8b6931fdf7176d3850.js",
+    "service-worker.js": "/admin/service-worker.js",
+    "static/css/main.4108bdc0.chunk.css.map": "/admin/static/css/main.4108bdc0.chunk.css.map",
+    "static/js/2.0c46fd76.chunk.js.LICENSE.txt": "/admin/static/js/2.0c46fd76.chunk.js.LICENSE.txt",
+    "static/media/shopdharan-white.png": "/admin/static/media/shopdharan-white.24657495.png",
+    "static/media/shopdharan.png": "/admin/static/media/shopdharan.f6198331.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.725b2414.js",
+    "static/js/2.0c46fd76.chunk.js",
+    "static/css/main.4108bdc0.chunk.css",
+    "static/js/main.0ef14504.chunk.js"
+  ]
+}

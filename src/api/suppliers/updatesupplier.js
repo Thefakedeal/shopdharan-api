@@ -3,6 +3,7 @@ const router = express.Router();
 
 const ROLES = require('../defaults/roles.json')
 const authenticateToken = require('../middlewares/authenticateToken')
+const savephoto = require('../../savephoto')
 const db = require('../../db')
 
 router.put('/',authenticateToken,async (req,res)=>{
@@ -35,6 +36,26 @@ router.put('/',authenticateToken,async (req,res)=>{
         res.sendStatus(200)
     } catch(err){
         res.sendStatus(500)
+    } 
+})
+
+router.put('/photo',authenticateToken,async (req,res)=>{
+    try{
+      if (req.role != ROLES.ADMIN) return res.sendStatus(403);
+        const { file } = req.files;
+        const {supplier_id} = req.body;
+        
+        if(!file) res.status(400).send("No photo to update");
+        const image_id = await savephoto(file)
+        await db.query(`UPDATE suppliers SET image_id=$2 
+            WHERE supplier_id=$1
+        `,[
+            supplier_id,
+            image_id,
+        ])
+        res.sendStatus(200)
+    } catch(err){
+        res.sendStatus(400)
     } 
 })
 
