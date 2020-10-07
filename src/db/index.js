@@ -10,27 +10,28 @@ const pool = new Pool({
 
 
 module.exports = {
-  query: (text, params) => {
-    const start = Date.now();
-    return new Promise((resolve, reject) => {
-      try {
-        pool.query(text, params, (err, res) => {
-          const duration = Date.now() - start;
-          if (err) {
-            console.log(`Query: ${text} Failed Due To \n ${err}`);
-            reject(err);
-            return;
-          }
-          console.log(
-            `Executed Query: ${text} in ${duration} ms \n Rows Affected: ${res.rowCount}`
-          );
-          resolve(res);
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    });
-  },
-  transaction: pool.connect()
+  // query: (text, params) => {
+  //   const start = Date.now();
+  //   return new Promise((resolve, reject) => {
+  //     try {
+  //       pool.query(text, params, (err, res) => {
+  //         const duration = Date.now() - start;
+  //         if (err) {
+  //           console.log(`Query: ${text} Failed Due To \n ${err}`);
+  //           reject(err);
+  //           return;
+  //         }
+  //         console.log(
+  //           `Executed Query: ${text} in ${duration} ms \n Rows Affected: ${res.rowCount}`
+  //         );
+  //         resolve(res);
+  //       });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   });
+  // },
+  query: (text,params) => pool.query(text,params),
+  connect: () => pool.connect()
   
 };

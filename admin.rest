@@ -1,0 +1,8 @@
+PUT  http://localhost:5000/api/admin/changepassword HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjAxMTk5NCwiZXhwIjoxNjAyMDEyODk0fQ.dGNeah7mr1WyZs6tE76kGq7Qfna0DDPMYCn9zF0TNXA
+content-type: application/json
+
+{
+    "old_password":"therealdeal",
+    "new_password":"thefakedeal"
+}

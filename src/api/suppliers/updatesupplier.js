@@ -44,7 +44,7 @@ router.put('/photo',authenticateToken,async (req,res)=>{
       if (req.role != ROLES.ADMIN) return res.sendStatus(403);
         const { file } = req.files;
         const {supplier_id} = req.body;
-        
+        if(!supplier_id) return res.status(400).send("No Supplier ID provided")
         if(!file) res.status(400).send("No photo to update");
         const image_id = await savephoto(file)
         await db.query(`UPDATE suppliers SET image_id=$2 

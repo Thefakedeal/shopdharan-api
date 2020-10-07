@@ -1,0 +1,6 @@
+{
+    "PROCESSING": "processing",
+    "DELIVERING": "delivering",
+    "DELIVERED" : "delivered",
+    "CANCELLED" : "cancelled"
+}

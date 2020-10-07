@@ -11,8 +11,8 @@ module.exports = async function saveImage(image){
         randomstringpath = `images/${imageID}.jpeg`;
  
         sharp(image.path)
-        .resize(300, 200, {
-            fit: "inside"
+        .resize(600, 400, {
+            fit: "cover"
         })
         .toFile(`${randomstringpath}`, (err, info) => {
             if (err) return reject(err);

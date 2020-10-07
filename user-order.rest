@@ -1,0 +1,39 @@
+POST  http://localhost:5000/api/user/orders/add HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+{
+    "address_id": "a5443595-8747-4e29-b0fe-f8dc473d5f49",
+    "orders":
+        [{
+            "product_id": "4408b26f-c5c2-4b23-a222-2c1277ed6c3d",
+            "quantity": "2"
+        },
+        {
+            "product_id": "fe666217-ae64-4f0d-b608-437ebcdbf676",
+            "quantity": "1"
+        }]
+    
+}
+
+###
+
+GET  http://localhost:5000/api/user/orders/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+###
+GET  http://localhost:5000/api/user/orders/get?order_id=9804ff0c-c314-4c50-9014-3e859fe963ec HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+###
+
+PUT  http://localhost:5000/api/user/orders/cancel HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+{
+    "order_id": "56ed9e55-d1d4-43fd-b901-112db1b6eda4"
+}
+

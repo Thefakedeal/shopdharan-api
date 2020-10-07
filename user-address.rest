@@ -1,0 +1,25 @@
+POST  http://localhost:5000/api/user/address/add HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+{
+    "street_name": "Bhotepul",
+    "city_id": "c5630abd-0b60-40c3-98ba-bc908255c93d",
+    "details": "Its right there"
+
+}
+###
+
+GET  http://localhost:5000/api/user/address/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+###
+DELETE  http://localhost:5000/api/user/address/delete HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+content-type: application/json
+
+{
+    "address_id": "74e553b0-4476-4f83-ae56-981f4923b88e"
+
+}

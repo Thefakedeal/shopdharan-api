@@ -1,0 +1,31 @@
+POST  http://localhost:5000/api/user/signup HTTP/1.1
+content-type: application/json
+
+{
+    "user_name": "Steve Richard",
+    "email_id": "theonlysamir@gmail.com",
+    "password": "theonlysamir",
+    "mobile_number": "9087656789"
+}
+
+###
+
+PUT  http://localhost:5000/api/user/changepassword HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDQ1NTE0LCJleHAiOjE2MDIwNDY0MTR9.MfUByoupAn45gJmKCuZ0Z4VKeZhgghKFaWKO48ITTD4
+content-type: application/json
+
+{
+    "old_password": "theonlysamir",
+    "new_password": "theonlysamir1"
+}
+
+###
+
+GET  http://localhost:5000/api/user/orders/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDc4MzY1LCJleHAiOjE2MDIwNzkyNjV9.yHHhMSr2D4J1d80y9XJT8KNLEIuGnbAxibCImH__tPA
+content-type: application/json
+
+### 
+GET  http://localhost:5000/api/user/address/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDY0NDYxLCJleHAiOjE2MDIwNjUzNjF9.cHHpJWnJn5t26L7LM-NozWHxKkBmaAoqGyCk0vfvVWU
+content-type: application/json

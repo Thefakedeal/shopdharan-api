@@ -2,6 +2,7 @@ const express = require('express');
 
 const admin = require('./admin');
 const supplier = require('./supplier');
+const user = require('./user')
 
 const catagories = require('./catagories');
 const employees = require('./employees')
@@ -23,6 +24,8 @@ router.get('/', (req, res) => {
 
 router.use('/admin', admin);
 router.use('/supplier', supplier);
+router.use('/user', user)
+
 router.use('/products', products)
 router.use('/catagories',catagories);
 router.use('/employees',employees)
