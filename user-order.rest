@@ -1,5 +1,5 @@
 POST  http://localhost:5000/api/user/orders/add HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMjI1NTEzLCJleHAiOjE2MDIyMzQ1MTN9.C6H9bIaR3RvSTlppMPV9I8wQaCboWP4cmNII8gVTGtc
 content-type: application/json
 
 {
@@ -17,23 +17,23 @@ content-type: application/json
 }
 
 ###
-
+ 
 GET  http://localhost:5000/api/user/orders/getall HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMjI1NTEzLCJleHAiOjE2MDIyMzQ1MTN9.C6H9bIaR3RvSTlppMPV9I8wQaCboWP4cmNII8gVTGtc
 content-type: application/json
 
 ###
-GET  http://localhost:5000/api/user/orders/get?order_id=9804ff0c-c314-4c50-9014-3e859fe963ec HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+GET  http://localhost:5000/api/user/orders/get?order_id=df201519-858f-44fb-8145-083045128cc9 HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMjI1NTEzLCJleHAiOjE2MDIyMzQ1MTN9.C6H9bIaR3RvSTlppMPV9I8wQaCboWP4cmNII8gVTGtc
 content-type: application/json
 
 ###
 
 PUT  http://localhost:5000/api/user/orders/cancel HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDg4Njg2LCJleHAiOjE2MDIwOTc2ODZ9.EnuatJHkvISUJvOh0IPvMUgztw-J27avJU6-BewG1ms
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMjI1NTEzLCJleHAiOjE2MDIyMzQ1MTN9.C6H9bIaR3RvSTlppMPV9I8wQaCboWP4cmNII8gVTGtc
 content-type: application/json
 
 {
-    "order_id": "56ed9e55-d1d4-43fd-b901-112db1b6eda4"
+    "order_id": "df201519-858f-44fb-8145-083045128cc9"
 }
 

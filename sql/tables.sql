@@ -105,7 +105,7 @@ CREATE TABLE employee
     PRIMARY KEY(employee_id)
 );
 
-CREATE TYPE order_status AS ENUM ('processing','delivering','delivered','cancelled');
+CREATE TYPE order_status AS ENUM ('processing', 'preparing','delivering','delivered','cancelled');
 
 CREATE TABLE orders(
     order_id VARCHAR(36),

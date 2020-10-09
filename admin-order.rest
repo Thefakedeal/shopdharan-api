@@ -1,0 +1,32 @@
+GET  http://localhost:5000/api/admin/orders/getall HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjIyNTE5MywiZXhwIjoxNjAyMjI2MDkzfQ.2KlhaxBH5B3Xl833RT5In4R5-q-hRu2rcFZZroCf6ck
+content-type: application/json
+
+###
+GET  http://localhost:5000/api/admin/orders/get?order_id=93259991-5934-4aea-9c8e-f6982d657157 HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjIyNTE5MywiZXhwIjoxNjAyMjI2MDkzfQ.2KlhaxBH5B3Xl833RT5In4R5-q-hRu2rcFZZroCf6ck
+content-type: application/json
+
+###
+GET  http://localhost:5000/api/admin/orders/getorderstatus HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjIyNTE5MywiZXhwIjoxNjAyMjI2MDkzfQ.2KlhaxBH5B3Xl833RT5In4R5-q-hRu2rcFZZroCf6ck
+content-type: application/json
+
+###
+PUT  http://localhost:5000/api/admin/orders/update HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjIyNTE5MywiZXhwIjoxNjAyMjI2MDkzfQ.2KlhaxBH5B3Xl833RT5In4R5-q-hRu2rcFZZroCf6ck
+content-type: application/json
+
+{
+    "order_id": "93259991-5934-4aea-9c8e-f6982d657157",
+    "order_status":"preparing"
+}
+
+###
+DELETE  http://localhost:5000/api/admin/orders/delete HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMjIyNTE5MywiZXhwIjoxNjAyMjI2MDkzfQ.2KlhaxBH5B3Xl833RT5In4R5-q-hRu2rcFZZroCf6ck
+content-type: application/json
+
+{
+    "order_id": "9804ff0c-c314-4c50-9014-3e859fe963ec"
+}
