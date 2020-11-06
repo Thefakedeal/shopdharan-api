@@ -150,7 +150,7 @@ CREATE TABLE ordered_items
 );
 
 CREATE TABLE delivery_cost(
-    order_id VARCHAR(36) NOT NULL,
+    order_id VARCHAR(36) NOT NULL UNIQUE,
     delivery_cost INTEGER NOT NULL,
     num_suppliers INTEGER NOT NULL,
     CONSTRAINT cost_check
