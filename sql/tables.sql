@@ -148,3 +148,17 @@ CREATE TABLE ordered_items
     REFERENCES orders(order_id)
     ON DELETE CASCADE
 );
+
+CREATE TABLE delivery_cost(
+    order_id VARCHAR(36) NOT NULL,
+    delivery_cost INTEGER NOT NULL,
+    num_suppliers INTEGER NOT NULL,
+    CONSTRAINT cost_check
+    CHECK(delivery_cost>=0),
+    CONSTRAINT supplier_check
+    CHECK(num_suppliers>=0),
+    CONSTRAINT order_id
+    FOREIGN KEY(order_id)
+    REFERENCES orders(order_id)
+    ON DELETE CASCADE
+);

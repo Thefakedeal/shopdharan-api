@@ -38,7 +38,7 @@ router.post("/", authenticateToken, async (req, res) => {
         supplier_id,
         supplier_name,
         city_id,
-        email_id,
+        email_id.toLowerCase().trim(),
         supplier_description,
         visible,
         hashedPassword,

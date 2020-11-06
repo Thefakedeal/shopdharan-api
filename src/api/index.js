@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 
 const admin = require('./admin');
 const supplier = require('./supplier');
@@ -11,9 +12,8 @@ const suppliers = require('./suppliers')
 const token = require('./token')
 const products = require('./products')
 const validateToken = require('./validatetoken');
-
-const router = express.Router();
-
+const order_status = require('./orderstatus')
+const logout = require('./logout')
 
 router.get('/', (req, res) => {
   res.json({
@@ -33,4 +33,7 @@ router.use('/cities', cities)
 router.use('/suppliers',suppliers);
 router.use('/token',token);
 router.use('/validate', validateToken);
+router.use('/orderstatus',order_status)
+
+router.use('/logout', logout)
 module.exports = router;

@@ -12,8 +12,9 @@ router.get('/',async (req,res)=>{
             supplier_name
         } = req.query;
     
+
         const name = `%${supplier_name}%`
-        const query = await db.query(`SELECT supplier_id, supplier_name,contact_number, visible,supplier_description,image_id
+        const query = await db.query(`SELECT supplier_id,city_id, supplier_name,contact_number, visible,supplier_description,image_id
             FROM suppliers
             WHERE ($1::boolean IS NULL OR visible=$1) AND ($2::text IS NULL OR city_id=$2)
             AND ($3::text IS NULL OR catagory_id=$3) AND ($4::text IS NULL OR supplier_name ILIKE $5)

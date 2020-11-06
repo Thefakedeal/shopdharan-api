@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     const query = await db.query(
       `SELECT username, password, employee_id, is_admin
         FROM employee WHERE username=$1`,
-      [username]
+      [username.toLowerCase().trim()]
     );
     const response = query.rows[0];
     if (!response) return res.status(401).send(`User Doesn't Exists`);

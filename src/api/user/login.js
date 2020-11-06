@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     const query = await db.query(
       `SELECT email_id, password, user_id
         FROM users WHERE email_id=$1`,
-      [email_id]
+      [email_id.toLowerCase().trim()]
     );
     const response = query.rows[0];
     if (!response) return res.status(401).send(`User Doesn't Exists`);
@@ -29,6 +29,7 @@ router.post("/", async (req, res) => {
 
     res.json({ accessToken,refreshToken });
   } catch (err) {
+console.log(err)
     res.sendStatus(500);
   }
 });

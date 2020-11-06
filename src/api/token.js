@@ -5,7 +5,9 @@ const jwt = require('jsonwebtoken')
 router.post('/',(req,res)=>{
     const refreshToken = req.body.refreshToken;
     jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET,(err,user)=>{
-    if (err) return res.sendStatus(403);
+    if (err) {
+	return res.sendStatus(403)
+	};
     const newUser= {
         id: user.id,
         role: user.role,

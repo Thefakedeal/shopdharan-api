@@ -35,7 +35,7 @@ router.post("/", authenticateToken, async (req, res) => {
       );
     }
     client.query('COMMIT')
-    res.json(order_id);
+    res.json({order_id});
   } catch (err) {
     console.log(err)
     res.status(500).send("Something Went Wrong");

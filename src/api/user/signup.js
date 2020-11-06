@@ -18,12 +18,18 @@ router.post("/", async (req, res) => {
     if(!validatePassword(password)) return res.status(400).send("Invalid Password")
     if(!user_name) return res.status(400).send("Name is required")
     if(!mobile_number) return res.status(400).send("Mobile Number Is Required")
-
     const hashedPassword = await hash(password);
+
+    const emailcheck = await db.query(
+      `SELECT 1 FROM users WHERE email_id=$1`,
+      [email_id.toLowerCase().trim()]
+    );
+    if (emailcheck.rowCount>0) return res.status(401).send(`Email Already In use`);
+
     await db.query(
       `INSERT INTO users(user_id,user_name,email_id,password,mobile_number)
         VALUES($1,$2,$3,$4,$5)`,
-      [user_id, user_name, email_id, hashedPassword, mobile_number]
+      [user_id, user_name, email_id.toLowerCase().trim(), hashedPassword, mobile_number]
     );
 
     const user = {
@@ -41,7 +47,7 @@ router.post("/", async (req, res) => {
 
     res.status(201).json({accessToken,refreshToken})
   } catch (err) {
-    res.status(400).send(err);
+    res.status(500);
   }
 });
 

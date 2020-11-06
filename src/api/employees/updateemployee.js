@@ -14,7 +14,7 @@ router.put("/", authenticateToken ,async (req, res) => {
       `UPDATE employee SET employee_name=$1, is_admin=$2, username=$3, email=$4
         WHERE employee_id= $5
       `,
-      [employee_name, is_admin, username, email, employee_id]
+      [employee_name, is_admin, username.toLowerCase().trim(), email.toLowerCase().trim(), employee_id]
     );
     res.sendStatus(200);
   } catch (err) {

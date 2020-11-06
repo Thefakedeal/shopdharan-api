@@ -1,0 +1,48 @@
+GET  http://localhost:5000/api/products/getall?supplier_id=c5d51f3a-7d78-43e3-9d1b-1615bc501452 HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+###
+GET  http://localhost:5000/api/products/get?product_id=4408b26f-c5c2-4b23-a222-2c1277ed6c3d HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+###
+POST http://localhost:5000/api/products/add HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1ZDUxZjNhLTdkNzgtNDNlMy05ZDFiLTE2MTViYzUwMTQ1MiIsInJvbGUiOiJzdXBwbGllciIsImlhdCI6MTYwMTkxMzMwMX0.z1_QK9KpQookqFg7zY_VlzWil6Xf5xWAcLA7J0Tyc_I
+Content-Type: application/json
+
+{
+    "product_name":"Billy",
+    "product_description":"Its... ya know.",
+    "available":"false",
+    "price":"60"
+}
+
+###
+
+PUT http://localhost:5000/api/products/update HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1ZDUxZjNhLTdkNzgtNDNlMy05ZDFiLTE2MTViYzUwMTQ1MiIsInJvbGUiOiJzdXBwbGllciIsImlhdCI6MTYwMTkxMzMwMX0.z1_QK9KpQookqFg7zY_VlzWil6Xf5xWAcLA7J0Tyc_I
+Content-Type: application/json
+
+{   "product_id": "f9cb5d72-60d8-44d9-860b-e2dc265cb298",
+    "product_name":"Billyyy",
+    "product_description":"Its... ya know.",
+    "available":"false",
+    "price":"60"
+}
+###
+
+GET  http://localhost:5000/api/products/search?supplier_id=c5d51f3a-7d78-43e3-9d1b-1615bc501452 HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiMjM1ODRmLTU1NjYtNDc5Ni04OGU0LTYxMTFhOWZlNWNhOSIsImlzX2FkbWluIjp0cnVlLCJpc19lbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjAxMTQ4OTQ3fQ.88hP-rz5Txatqy4J9YCTXwfNM0zp2aOflLewGgNC40Y
+content-type: application/json
+
+###
+
+DELETE  http://localhost:5000/api/products/delete HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1ZDUxZjNhLTdkNzgtNDNlMy05ZDFiLTE2MTViYzUwMTQ1MiIsInJvbGUiOiJzdXBwbGllciIsImlhdCI6MTYwMTkxMzMwMX0.z1_QK9KpQookqFg7zY_VlzWil6Xf5xWAcLA7J0Tyc_I
+Content-Type: application/json
+
+{   
+    "product_id": "f9cb5d72-60d8-44d9-860b-e2dc265cb298"
+}

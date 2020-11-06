@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const ROLES = require('../defaults/roles.json')
+
 
 module.exports = function auth(req, res, next) {
   const authHeader = req.headers["authorization"];
@@ -7,7 +7,7 @@ module.exports = function auth(req, res, next) {
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
+    if (err) return res.status(403).send("Login Token Expired")
     req.id = user.id;
     req.role= user.role;
     next();

@@ -17,7 +17,7 @@ router.post("/", authenticateToken ,async (req, res) => {
     await db.query(
       `INSERT INTO employee(employee_id,employee_name,is_admin,username,password,email)
         VALUES($1,$2,$3,$4,$5,$6)`,
-      [employee_id, employee_name, is_admin, username, hashedPassword, email]
+      [employee_id, employee_name, is_admin, username.toLowerCase().trim(), hashedPassword, email.toLowerCase().trim()]
     );
     res.status(201).json({employee_id});
   } catch (err) {

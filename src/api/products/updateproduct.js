@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../../db");
 const ROLES = require("../defaults/roles.json");
 const authenticateToken = require("../middlewares/authenticateToken");
-
+const savephoto = require('../../savephoto')
 
 router.put("/", authenticateToken, async (req, res) => {
   try {
@@ -40,7 +40,7 @@ router.put('/image',authenticateToken, async (req,res)=>{
 
     const supplier_id = req.id;
     const { product_id } = req.body;
-
+	console.log(product_id)
     if (!req.files || !req.files.file) return res.status(400).send("No Photos Added")
     
     const image_id = await savephoto(req.files.file);
@@ -55,8 +55,9 @@ router.put('/image',authenticateToken, async (req,res)=>{
         image_id
       ]
     );
-    res.sendStatus(200)
+    res.status(200).json({image_id})
   } catch (err) {
+console.log(err)
     res.sendStatus(400);
   }
 })

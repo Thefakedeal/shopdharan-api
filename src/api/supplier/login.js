@@ -11,8 +11,8 @@ router.post("/", async (req, res) => {
     const { email_id, password } = req.body;
     const query = await db.query(
       `SELECT email_id, password, supplier_id
-        FROM suppliers WHERE email_id=$1 LIMIT 1`,
-      [email_id]
+        FROM suppliers WHERE email_id=$1 `,
+      [email_id.toLowerCase().trim()]
     );
     const response = query.rows[0];
     if (!response) return res.status(401).send(`User Doesn't Exists`);
@@ -24,8 +24,9 @@ router.post("/", async (req, res) => {
       id: response.supplier_id,
       role: ROLES.SUPPLIER
     };
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    res.json({ accessToken: accessToken });
+     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'60m'});
+    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET,{expiresIn: '80d'});
+    res.json({ accessToken,refreshToken });
   } catch (err) {
     res.sendStatus(500);
   }

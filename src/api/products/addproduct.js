@@ -16,7 +16,7 @@ router.post("/", authenticateToken, async (req, res) => {
     const { product_name, product_description, available, price } = req.body;
 
     let image_id = "logo";
-    console.log(req.files)
+ 
     if (req.files && req.files.file) {
       image_id = await savephoto(req.files.file);
     }

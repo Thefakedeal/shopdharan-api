@@ -1,0 +1,18 @@
+POST  http://localhost:5000/api/validate HTTP/1.1
+content-type: application/json
+
+{
+
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMzY0NjcwMCwiZXhwIjoxNjAzNjQ3NjAwfQ.DhWKveOw20QDNQj365fRmTKgKCxU3LfVI7400IsxbLI",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMzY0NjcwMCwiZXhwIjoxNjA2MjM4NzAwfQ.N3Gvo3gm_A6ZLtxQYsILDA3GmWf9jclvvqkTHIyeYY4"
+}
+
+###
+POST  http://localhost:5000/api/token HTTP/1.1
+content-type: application/json
+
+{
+
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMzY0NjcwMCwiZXhwIjoxNjAzNjQ3NjAwfQ.DhWKveOw20QDNQj365fRmTKgKCxU3LfVI7400IsxbLI",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmYzhjYTQ1LWQwZmYtNGNiMC1iNzhiLTFhZGY4YjkzZWZhMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwMzY0NjcwMCwiZXhwIjoxNjA2MjM4NzAwfQ.N3Gvo3gm_A6ZLtxQYsILDA3GmWf9jclvvqkTHIyeYY4"
+}
