@@ -24,10 +24,13 @@ router.get("/", authenticateToken, async (req, res) => {
     const order = query.rows[0];
     if (!order) return res.status(404).send("Order not Found");
 
-    const addressquery = await db.query(`SELECT address_id, address.city_id, city.city_name, address.street_name, address.details 
+    const addressquery = await db.query(
+      `SELECT address_id, address.city_id, city.city_name, address.street_name, address.details 
     FROM address,city
     WHERE address.address_id = $1 AND address.city_id = city.city_id
-    `,[order.address_id])
+    `,
+      [order.address_id]
+    );
 
     const address = addressquery.rows[0];
 
@@ -44,15 +47,34 @@ router.get("/", authenticateToken, async (req, res) => {
     const ordered_items = items_query.rows;
 
     const productCost = getProductCost(ordered_items);
-    const suppliers = getNumberOfSuppliers(ordered_items,address);
-    const deliveryCharge = getDeliveryCharge(suppliers);
-    
+
+    const chargeQuery = await db.query(
+      `SELECT delivery_cost,num_suppliers
+      FROM delivery_cost WHERE order_id=$1 LIMIT 1
+    `,
+      [order_id]
+    );
+    const chargeValues = chargeQuery.rows[0];
+
+    //Calculate Num Of Suppliers And Delivery Charge
+    let deliveryCharge;
+    let numOfSuppliers;
+    if (chargeValues) {
+      deliveryCharge = chargeValues.delivery_cost;
+      numOfSuppliers = chargeValues.num_suppliers;
+    } else {
+      const suppliers = getNumberOfSuppliers(ordered_items, address);
+      deliveryCharge = getDeliveryCharge(suppliers);
+      numOfSuppliers =
+        parseInt(suppliers.sameCity) + parseInt(suppliers.differentCity);
+    }
+
     res.json({
       order,
       address,
       ordered_items,
-      numOfSuppliers: parseInt(suppliers.sameCity) + parseInt(suppliers.differentCity),
-      deliveryCharge,
+      numOfSuppliers: numOfSuppliers,
+      deliveryCharge: deliveryCharge,
       total: deliveryCharge + productCost,
     });
   } catch (err) {

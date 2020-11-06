@@ -73,7 +73,6 @@ async function getOrderWithCity(orders=[]){
         if(!product) continue;
         cart_orders.push({ ...product, quantity: parseInt(order.quantity) });
     }
-    console.log(cart_orders)
     return cart_orders
 }
 

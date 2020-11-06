@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const prices = require("../../defaults/deliveryprice.json");
 const db = require("../../../db");
 const ROLES = require("../../defaults/roles.json");
 
@@ -14,7 +14,8 @@ router.get("/", async (req, res) => {
       [order_id]
     );
     const order = query.rows[0];
-    if(query.rowCount===0) return res.status(404).send("No Such Order Exists")
+    if (query.rowCount === 0)
+      return res.status(404).send("No Such Order Exists");
     const addressquery = await db.query(
       `SELECT address_id,city.city_name,street_name,details
     FROM address,city WHERE address_id = $1 AND address.city_id=city.city_id
@@ -24,11 +25,11 @@ router.get("/", async (req, res) => {
     const address = addressquery.rows[0];
 
     const userquery = await db.query(
-        `SELECT user_id,user_name,mobile_number,email_id
+      `SELECT user_id,user_name,mobile_number,email_id
       FROM users WHERE user_id = $1 
       `,
-        [order.user_id]
-      );
+      [order.user_id]
+    );
     const user = userquery.rows[0];
     const items_query = await db.query(
       `SELECT oit.ordered_item_id, oit.product_id, oit.quantity,
@@ -39,8 +40,25 @@ router.get("/", async (req, res) => {
       [order_id]
     );
     const ordered_items = items_query.rows;
- 
-    res.json({ order, user, address, ordered_items });
+
+    const chargeQuery = await db.query(
+      `SELECT delivery_cost,num_suppliers
+      FROM delivery_cost WHERE order_id=$1 LIMIT 1
+    `,
+      [order_id]
+    );
+    const chargeValues = chargeQuery.rows[0];
+    const deliveryCharge = chargeValues?chargeValues.delivery_cost:prices.INSIDECITY;
+    const numOfSuppliers = chargeValues?chargeValues.num_suppliers:1;
+
+    res.json({
+      order,
+      user,
+      address,
+      ordered_items,
+      deliveryCharge,
+      numOfSuppliers,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).send("Something Went Wrong");
