@@ -3,7 +3,7 @@ const getData = require("../../redis/getdata");
 const { role } = require("../../redis");
 module.exports = {
   savePin: (role, email_id, pin) => {
-    const expTimeInSec = 21600;
+    const expTimeInSec = 600;
     //Save Pin To Redis
     const success = client.setex(
       `{resetpassword:${role}:${email_id}}`,
