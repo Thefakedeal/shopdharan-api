@@ -8,6 +8,7 @@ const ROLES = require('../defaults/roles.json')
 router.post("/", async (req, res) => {
   try {
     const { username } = req.body;
+    if(!username) return res.status(401).send("No username")
     const query = await db.query(
       `SELECT email,username FROM employee WHERE username=$1`,
       [username.toLowerCase().trim()]
@@ -21,7 +22,7 @@ router.post("/", async (req, res) => {
     if(!success) throw "Redis Set Error"
     const text = `Your Recovery Pin Code is ${pin}`;
     
-    console.log(response.email)
+
     sendMailText(
       "recover.shopdharan@gmail.com",
       [response.email],

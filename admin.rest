@@ -6,3 +6,22 @@ content-type: application/json
     "old_password":"therealdeal",
     "new_password":"thefakedeal"
 }
+###
+POST  http://localhost:5000/api/admin/requestpin HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDc4MzY1LCJleHAiOjE2MDIwNzkyNjV9.yHHhMSr2D4J1d80y9XJT8KNLEIuGnbAxibCImH__tPA
+content-type: application/json
+
+{
+    "username": "dharanshop"
+}
+
+###
+PUT  http://localhost:5000/api/admin/forgotpassword HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDQ1NTE0LCJleHAiOjE2MDIwNDY0MTR9.MfUByoupAn45gJmKCuZ0Z4VKeZhgghKFaWKO48ITTD4
+content-type: application/json
+
+{
+    "username": "dharanshop",
+    "pin": "cb39ed113fb9b85d",
+    "new_password": "thefakedeal"
+}

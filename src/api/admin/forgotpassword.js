@@ -3,23 +3,23 @@ const router = express.Router();
 const db = require("../../db");
 const {validatePassword} = require('../../validations')
 const { hash } = require("../../bcrypt");
-const {comparePin, deletePin} = require('../pincode')
+const {comparePin,deletePin} = require('../pincode')
 const ROLES = require('../defaults/roles.json')
 
 router.put("/", async (req, res) => {
   try {
-    const { email_id, new_password, pin } = req.body;
-    if(!email_id) return res.status(401).send(`Email Not Provided`);
+    const { username, new_password, pin } = req.body;
+    if(!username) return res.status(401).send(`Username Not Provided`);
     if(!new_password) return res.status(401).send(`Password not Provided`);
 
-    const pinsMatch = await comparePin(ROLES.SUPPLIER, email_id, pin) 
+    const pinsMatch = await comparePin(ROLES.EMPLOYEE, username, pin) 
 
     if(!pinsMatch) return res.status(401).send("Incorrect Pin or Email. Try again.")
 
     const query = await db.query(
-      `SELECT email_id, password
-        FROM suppliers WHERE email_id=$1`,
-      [email_id]
+      `SELECT username, password
+        FROM employee WHERE username=$1`,
+      [username]
     );
 
     const response = query.rows[0];
@@ -27,15 +27,14 @@ router.put("/", async (req, res) => {
     if(!validatePassword(new_password)) return res.status(401).send(`Invalid Password`);
     const hashedPassword = await hash(new_password);
     const change = await db.query(
-      `UPDATE suppliers SET password=$1
-      WHERE email_id=$2`,
-      [hashedPassword, email_id]
+      `UPDATE employee SET password=$1 WHERE username=$2`,
+      [hashedPassword, username]
     );
     
-    deletePin(ROLES.SUPPLIER, email_id)
+    deletePin(ROLES.EMPLOYEE,username)
     res.status(200).send("Password Updated");
   } catch (err) {
-    console.log(err)
+      console.log(err)
     res.sendStatus(500);
   }
 });
