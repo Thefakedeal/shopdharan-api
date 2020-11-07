@@ -11,9 +11,9 @@ module.exports = {
     );
     return success;
   },
-  comparePin: async (role, email_id, pin) => {
+  comparePin: async (role, id, pin) => {
     try{
-      const data = await getData(`{resetpassword:${role}:${email_id}}`);
+      const data = await getData(`{resetpassword:${role}:${id}}`);
       if (data.toString() === pin.toString()) return true;
       return false;
     }catch(err){
