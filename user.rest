@@ -38,3 +38,14 @@ content-type: application/json
 {
     "email_id": "theonlysamir@gmail.com"
 }
+
+###
+PUT  http://localhost:5000/api/user/forgotpassword HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlNzc1MjAzLTQwOGYtNGI4MS05YjliLTgxMjEwM2JjOTlkMCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjAyMDQ1NTE0LCJleHAiOjE2MDIwNDY0MTR9.MfUByoupAn45gJmKCuZ0Z4VKeZhgghKFaWKO48ITTD4
+content-type: application/json
+
+{
+    "email_id": "theonlysamir@gmail.com",
+    "pin": "1f844bc393003de9",
+    "new_password": "theonlysamir"
+}
