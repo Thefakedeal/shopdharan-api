@@ -28,9 +28,9 @@ app.use('/api',express.urlencoded({extended:false}));
 
 app.use('/api', api);
 
-app.use('/admin',express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname,'public', 'build')));
 
-app.get('/admin/*', function (req, res) {
+app.get('/*', function (req, res) {
    res.sendFile(path.join(__dirname, 'public', 'build', 'index.html'));
 });
 
