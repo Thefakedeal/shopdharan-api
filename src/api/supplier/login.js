@@ -3,8 +3,9 @@ const router = express.Router();
 const db = require("../../db");
 const { compare } = require("../../bcrypt");
 const jwt = require("jsonwebtoken");
-
 const ROLES = require('../defaults/roles.json')
+const {login} = require('../../login')
+
 router.post("/", async (req, res) => {
   
   try {
@@ -24,8 +25,12 @@ router.post("/", async (req, res) => {
       id: response.supplier_id,
       role: ROLES.SUPPLIER
     };
-     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'60m'});
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'60m'});
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET,{expiresIn: '80d'});
+    
+    const loggedIn = login(user.role,user.id,refreshToken)
+    if(!loggedIn) return res.status(500).send("Failed To Login")
+    
     res.json({ accessToken,refreshToken });
   } catch (err) {
     res.sendStatus(500);

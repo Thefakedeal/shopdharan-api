@@ -4,6 +4,7 @@ const db = require("../../db");
 const { compare } = require("../../bcrypt");
 const jwt = require("jsonwebtoken");
 const ROLES = require('../defaults/roles.json')
+const {login} = require('../../login')
 
 router.post("/", async (req, res) => {
   
@@ -26,6 +27,9 @@ router.post("/", async (req, res) => {
     };
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'150m'});
     const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET,{expiresIn: '30d'});
+
+    const loggedIn = login(user.role,user.id,refreshToken)
+    if(!loggedIn) return res.status(500).send("Failed To Login")
 
     res.json({ accessToken,refreshToken });
   } catch (err) {
