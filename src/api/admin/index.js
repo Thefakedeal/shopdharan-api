@@ -6,7 +6,7 @@ const myinfo = require('./myinfo')
 const changepassword = require('./changepassword')
 const orders = require('./orders')
 const requestpin = require('./requestpin')
-const forgotpassword = require('./forgotpassword')
+const resetpassword = require('./resetpassword')
 
 router.use('/login', login);
 router.use('/myinfo', myinfo)
@@ -14,6 +14,6 @@ router.use('/changepassword', changepassword)
 router.use('/orders', orders)
 
 router.use('/requestpin',requestpin)
-router.use('/forgotpassword',forgotpassword)
+router.use('/resetpassword',resetpassword)
 
 module.exports = router;

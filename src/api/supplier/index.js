@@ -8,7 +8,7 @@ const info = require('./info')
 const photo = require('./photo')
 
 const requestpin = require('./requestpin')
-const forgotpassword = require('./forgotpassword')
+const resetpassword = require('./resetpassword')
 
 router.use('/login', login);
 router.use('/myproducts', myproducts)
@@ -17,6 +17,6 @@ router.use('/orders', orders)
 router.use('/info', info)
 router.use('/photo', photo)
 router.use('/requestpin', requestpin)
-router.use('/forgotpassword', forgotpassword)
+router.use('/resetpassword', resetpassword)
 
 module.exports = router;
