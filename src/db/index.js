@@ -8,9 +8,11 @@ const pool = new Pool({
   port: process.env.DATABASE_PORT,
 });
 
+pool.on("error", (err) => {
+  console.error(err);
+});
 
 module.exports = {
-  query: (text,params) => pool.query(text,params),
-  connect: () => pool.connect()
-  
+  query: (text, params) => pool.query(text, params),
+  connect: () => pool.connect(),
 };
