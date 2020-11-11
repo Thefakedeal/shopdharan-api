@@ -1,6 +1,6 @@
 const client = require("../../redis");
 const getData = require("../../redis/getdata");
-const { role } = require("../../redis");
+
 module.exports = {
   savePin: (role, email_id, pin) => {
     const expTimeInSec = 600;
