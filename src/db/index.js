@@ -1,36 +1,15 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "postgres",
-  password: "postgres",
-  // port: 5432,
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
+  port: process.env.DATABASE_PORT,
 });
 
 
 module.exports = {
-  // query: (text, params) => {
-  //   const start = Date.now();
-  //   return new Promise((resolve, reject) => {
-  //     try {
-  //       pool.query(text, params, (err, res) => {
-  //         const duration = Date.now() - start;
-  //         if (err) {
-  //           console.log(`Query: ${text} Failed Due To \n ${err}`);
-  //           reject(err);
-  //           return;
-  //         }
-  //         console.log(
-  //           `Executed Query: ${text} in ${duration} ms \n Rows Affected: ${res.rowCount}`
-  //         );
-  //         resolve(res);
-  //       });
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   });
-  // },
   query: (text,params) => pool.query(text,params),
   connect: () => pool.connect()
   
