@@ -1,4 +1,3 @@
-const prices = require("../../defaults/deliveryprice.json");
 const db = require("../../../db");
 
 async function getCartOrders(orders = []) {
